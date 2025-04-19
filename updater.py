@@ -40,6 +40,7 @@ class UpdaterApp:
             self.label.config(text="Update completed successfully!")
             self.ok_btn.config(state="normal")
             self.launch_tool()
+            self.root.after(1000, self.root.destroy)
         except Exception as e:
             self.label.config(text=f"Error: {e}")
             self.retry_btn.config(state="normal")
@@ -71,7 +72,7 @@ class UpdaterApp:
 
     def replace_file(self):
         if os.path.exists(TOOL_NAME):
-            os.remove(TOOL_NAME)
+            os.rename(TOOL_NAME, TOOL_NAME + ".bak")
         shutil.move(TEMP_FILE, TOOL_NAME)
 
     def launch_tool(self):
@@ -81,7 +82,7 @@ class UpdaterApp:
         self.retry_btn.config(state="disabled")
         self.label.config(text="Retrying...")
         self.progress["value"] = 0
-        self.root.after(500, self.start_update)
+
 
 def main():
     root = tk.Tk()
