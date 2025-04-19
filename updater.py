@@ -6,9 +6,9 @@ import tkinter as tk
 from tkinter import ttk
 
 # ▼ GitHubの設定を変えてね ▼
-GITHUB_API = "https://api.github.com/repos/yourname/mytool-updates/releases/latest"
-TOOL_NAME = "mytool.exe"
-TEMP_FILE = "mytool-temp.exe"
+GITHUB_API = "https://api.github.com/repos/G-Est/test_tool/releases/latest"
+TOOL_NAME = "task_manager.exe"
+TEMP_FILE = "tool_updater.exe"
 
 class UpdaterApp:
     def __init__(self, root):
